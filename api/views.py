@@ -1,9 +1,11 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Label, TrackingPackage
+from .models import Label, TrackingPackage, Support
 from rest_framework.permissions import AllowAny
-from .serializers import LabelSerializer, TrackingPackageSerializer, ContactMessageSerializer, PhonealertSerializer
+from .serializers import LabelSerializer, TrackingPackageSerializer, ContactMessageSerializer, PhonealertSerializer, SupportSerializer
+
+
 
 
 
@@ -101,17 +103,6 @@ class ContactAPIView(APIView):
 
 
 
-# class PhonealertAPIView(APIView):
-#     permission_classes = [AllowAny]
-
-#     def post(self, request):
-#         serializer = PhonealertSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response({"message": "Alert set"})
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 class PhonealertAPIView(APIView):
     permission_classes = [AllowAny]
 
@@ -124,4 +115,25 @@ class PhonealertAPIView(APIView):
             return Response({"message": "Alert set"})
         else:
             print("Validation errors:", serializer.errors)  # Print validation errors
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
+
+class SupportAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        supports = Support.objects.all()
+        serializer = SupportSerializer(supports, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SupportSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "Posted"}, status=status.HTTP_201_CREATED)
+        else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

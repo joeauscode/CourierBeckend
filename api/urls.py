@@ -8,6 +8,7 @@ urlpatterns = [
     path("contact/", ContactAPIView.as_view(), name="contact-api"),
     path("phonealart/", PhonealertAPIView.as_view(), name="phonealart"),
     path("ping/", PingAPIView.as_view(), name="ping"),
+    path('support/', SupportAPIView.as_view(), name='support-api'),
 ]
 
 

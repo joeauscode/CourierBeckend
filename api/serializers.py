@@ -14,8 +14,13 @@ class TrackingPackageSerializer(serializers.ModelSerializer):
         model = TrackingPackage
         fields = '__all__'
         
-        
 
+class SupportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Support
+        fields = '__all__'
+
+        
 
 class ContactMessageSerializer(serializers.ModelSerializer):
     class Meta:

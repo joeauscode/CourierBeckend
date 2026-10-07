@@ -50,15 +50,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
 ]
 
-# MIDDLEWARE = [
-#     'django.middleware.security.SecurityMiddleware',
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-# ]
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', 
@@ -171,6 +163,12 @@ EMAIL_HOST_USER = 'eguloyas3@gmail.com'
 EMAIL_HOST_PASSWORD = 'yvtszsvjewpqayuv'
 DEFAULT_FROM_EMAIL = 'Shiparama Logistics <eguloyas3@gmail.com>'
 
+
+ZOHO_CLIENT_ID = '1000.CMNG9WYUJQAV6KJ12VM4PTAPB1E98E'
+ZOHO_CLIENT_SECRET = '750c71509c09b1ec9eabadbfa2e3dedcee95a16959'
+ZOHO_REFRESH_TOKEN = '1000.4be5f013515413d47d5cd6a616311ef2.1d565f6477a051c3f491cb580f755c53'
+ZOHO_ACCOUNT_ID = '7549193000000008002'
+ZOHO_FROM_EMAIL = 'info@globalroutelogistics.org'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
